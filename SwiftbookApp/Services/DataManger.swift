@@ -14,11 +14,11 @@ class DataManager {
     
     private let userDefaults = UserDefaults()
     
-    func saveFavoriteStatus(for courseName: String, with status: Bool) {
+    func saveFavouriteStatus(for courseName: String, with status: Bool) {
         userDefaults.set(status, forKey: courseName)
     }
     
-    func loadFavoriteStatus(for courseName: String) -> Bool {
+    func loadFavouriteStatus(for courseName: String) -> Bool {
         return userDefaults.bool(forKey: courseName)
     }
 }

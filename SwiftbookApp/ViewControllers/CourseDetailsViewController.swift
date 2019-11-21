@@ -30,7 +30,7 @@ class CourseDetailsViewController: UIViewController {
         isFavourite.toggle()
         let image = setImageForFavoriteButton()
         sender.setImage(image, for: .normal)
-        DataManager.shared.saveFavoriteStatus(for: course.name ?? "", with: isFavourite)
+        DataManager.shared.saveFavouriteStatus(for: course.name ?? "", with: isFavourite)
     }
     
     private func setupUI() {
@@ -51,6 +51,6 @@ class CourseDetailsViewController: UIViewController {
     }
     
     private func loadFavouriteStatus() {
-        isFavourite = DataManager.shared.loadFavoriteStatus(for: course.name ?? "")
+        isFavourite = DataManager.shared.loadFavouriteStatus(for: course.name ?? "")
     }
 }
