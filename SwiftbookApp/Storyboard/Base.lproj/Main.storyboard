@@ -132,7 +132,7 @@
                     <connections>
                         <outlet property="courseImage" destination="fUh-Fp-AOl" id="hTa-E4-GJz"/>
                         <outlet property="courseNameLabel" destination="Ziw-HJ-H21" id="usQ-Vx-uTh"/>
-                        <outlet property="favouriteButton" destination="JBr-hI-HB7" id="PQG-Pu-8xD"/>
+                        <outlet property="favoriteButton" destination="JBr-hI-HB7" id="PQG-Pu-8xD"/>
                         <outlet property="numberOfLessonsLabel" destination="yRb-wI-4D6" id="heO-Ud-LkG"/>
                         <outlet property="numberOfTestsLabel" destination="w6g-SR-73l" id="Jlu-yQ-TgH"/>
                     </connections>

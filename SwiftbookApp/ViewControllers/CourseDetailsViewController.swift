@@ -14,23 +14,23 @@ class CourseDetailsViewController: UIViewController {
     @IBOutlet private var numberOfLessonsLabel: UILabel!
     @IBOutlet private var numberOfTestsLabel: UILabel!
     @IBOutlet private var courseImage: UIImageView!
-    @IBOutlet private var favouriteButton: UIButton!
+    @IBOutlet private var favoriteButton: UIButton!
     
     var course: Course!
     
-    private var isFavourite = false
+    private var isFavorite = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadFavouriteStatus()
+        loadFavoriteStatus()
         setupUI()
     }
     
     @IBAction func toggleFavorite(_ sender: UIButton) {
-        isFavourite.toggle()
+        isFavorite.toggle()
         let image = setImageForFavoriteButton()
         sender.setImage(image, for: .normal)
-        DataManager.shared.saveFavouriteStatus(for: course.name ?? "", with: isFavourite)
+        DataManager.shared.saveFavoriteStatus(for: course.name ?? "", with: isFavorite)
     }
     
     private func setupUI() {
@@ -44,14 +44,14 @@ class CourseDetailsViewController: UIViewController {
         courseImage.image = UIImage(data: imageData)
         
         let image = setImageForFavoriteButton()
-        favouriteButton.setImage(image, for: .normal)
+        favoriteButton.setImage(image, for: .normal)
     }
     
     private func setImageForFavoriteButton() -> UIImage {
-        return isFavourite ? #imageLiteral(resourceName: "heartIcon") : #imageLiteral(resourceName: "unselectedHeart")
+        return isFavorite ? #imageLiteral(resourceName: "heartIcon") : #imageLiteral(resourceName: "unselectedHeart")
     }
     
-    private func loadFavouriteStatus() {
-        isFavourite = DataManager.shared.loadFavouriteStatus(for: course.name ?? "")
+    private func loadFavoriteStatus() {
+        isFavorite = DataManager.shared.loadFavoriteStatus(for: course.name ?? "")
     }
 }
