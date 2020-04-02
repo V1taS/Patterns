@@ -16,6 +16,7 @@ class CourseListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = 100
         setupNavigationBar()
         getCourses()
     }
@@ -68,10 +69,6 @@ extension CourseListViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension CourseListViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
