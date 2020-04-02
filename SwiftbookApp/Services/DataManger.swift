@@ -14,6 +14,8 @@ class DataManager {
     
     private let userDefaults = UserDefaults()
     
+    private init() {}
+    
     func saveFavouriteStatus(for courseName: String, with status: Bool) {
         userDefaults.set(status, forKey: courseName)
     }
