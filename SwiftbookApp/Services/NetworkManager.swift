@@ -14,7 +14,9 @@ class NetworkManager {
     
     private let coursesURL = "https://swiftbook.ru//wp-content/uploads/api/api_courses"
     
-    func fetchData(completion: @escaping (_ courses: [Course])->()) {
+    private init() {}
+    
+    func fetchData(completion: @escaping (_ courses: [Course]) -> Void) {
         guard let url = URL(string: coursesURL) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, _, _) in

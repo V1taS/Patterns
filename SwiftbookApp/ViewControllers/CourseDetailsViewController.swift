@@ -38,7 +38,8 @@ class CourseDetailsViewController: UIViewController {
         numberOfLessonsLabel.text = "Number of lessons: \(course.numberOfLessons ?? 0)"
         numberOfTestsLabel.text = "Number of tests: \(course.numberOfTests ?? 0)"
         
-        guard let imageURL = URL(string: course.imageUrl!) else { return }
+        guard let stringURL = course.imageUrl else { return }
+        guard let imageURL = URL(string: stringURL) else { return }
         guard let imageData = try? Data(contentsOf: imageURL) else { return }
         courseImage.image = UIImage(data: imageData)
         

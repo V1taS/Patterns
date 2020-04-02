@@ -21,6 +21,6 @@ class DataManager {
     }
     
     func loadFavouriteStatus(for courseName: String) -> Bool {
-        return userDefaults.bool(forKey: courseName)
+        userDefaults.bool(forKey: courseName)
     }
 }

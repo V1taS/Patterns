@@ -22,10 +22,8 @@ class CourseListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        let course = courses[indexPath.row]
         let detailVC = segue.destination as! CourseDetailsViewController
-        detailVC.course = course
+        detailVC.course = sender as? Course
     }
     
     private func getCourses() {
@@ -72,5 +70,7 @@ extension CourseListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let course = courses[indexPath.row]
+        performSegue(withIdentifier: "ShowDetails", sender: course)
     }
 }
