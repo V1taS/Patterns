@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QAz-tK-88Z">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -103,8 +102,9 @@
                                     <constraint firstAttribute="height" constant="60" id="Hbu-3z-8Qg"/>
                                     <constraint firstAttribute="width" constant="60" id="Jss-ub-XLo"/>
                                 </constraints>
-                                <state key="normal" image="unselectedHeart">
-                                    <color key="titleColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="1" green="0.1851396723" blue="0.1986965527" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="heart.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="28"/>
                                 </state>
                                 <connections>
                                     <action selector="toggleFavorite:" destination="6Og-B4-LBe" eventType="touchUpInside" id="vgK-Ze-EH6"/>
@@ -170,6 +170,6 @@
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="2-courselogo" width="600" height="432"/>
-        <image name="unselectedHeart" width="25" height="23"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
     </resources>
 </document>

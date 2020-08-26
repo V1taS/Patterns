@@ -28,8 +28,7 @@ class CourseDetailsViewController: UIViewController {
     
     @IBAction func toggleFavorite(_ sender: UIButton) {
         isFavorite.toggle()
-        let image = setImageForFavoriteButton()
-        sender.setImage(image, for: .normal)
+        setImageForFavoriteButton()
         DataManager.shared.saveFavoriteStatus(for: course.name ?? "", with: isFavorite)
     }
     
@@ -42,13 +41,12 @@ class CourseDetailsViewController: UIViewController {
         guard let imageURL = URL(string: stringURL) else { return }
         guard let imageData = try? Data(contentsOf: imageURL) else { return }
         courseImage.image = UIImage(data: imageData)
-        
-        let image = setImageForFavoriteButton()
-        favoriteButton.setImage(image, for: .normal)
+              
+        setImageForFavoriteButton()
     }
     
-    private func setImageForFavoriteButton() -> UIImage {
-        return isFavorite ? #imageLiteral(resourceName: "heartIcon") : #imageLiteral(resourceName: "unselectedHeart")
+    private func setImageForFavoriteButton() {
+        favoriteButton.tintColor = isFavorite ? .red : .gray
     }
     
     private func loadFavoriteStatus() {
