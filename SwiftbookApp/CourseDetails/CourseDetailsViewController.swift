@@ -8,6 +8,18 @@
 
 import UIKit
 
+// ViewInput
+protocol CourseDetailsViewProtocol: class {
+    
+}
+
+// View Output
+protocol CourseDetailsViewOutputProtocol {
+    init(view: CourseDetailsViewProtocol)
+    func showDetails()
+}
+
+
 class CourseDetailsViewController: UIViewController {
     
     @IBOutlet private var courseNameLabel: UILabel!
@@ -17,11 +29,14 @@ class CourseDetailsViewController: UIViewController {
     @IBOutlet private var favoriteButton: UIButton!
     
     var course: Course!
+    var presentor: CourseDetailsViewOutputProtocol!
+    let configurator: CourseDetailsConfiguratorProtocol = CourseDetailsConfigurator()
     
     private var isFavorite = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configurator.cofigure(with: self, and: course)
         loadFavoriteStatus()
         setupUI()
     }
@@ -52,4 +67,9 @@ class CourseDetailsViewController: UIViewController {
     private func loadFavoriteStatus() {
         isFavorite = DataManager.shared.loadFavoriteStatus(for: course.name ?? "")
     }
+}
+
+// MARK: - CourseDetailsViewProtocol
+extension CourseDetailsViewController: CourseDetailsViewProtocol {
+    
 }
