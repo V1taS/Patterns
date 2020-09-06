@@ -17,9 +17,14 @@
 		A823523B22F6ECB900FE65E0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823523A22F6ECB900FE65E0 /* NetworkManager.swift */; };
 		A823523D22F6F1E900FE65E0 /* CourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823523C22F6F1E900FE65E0 /* CourseTableViewCell.swift */; };
 		A823524122F7170F00FE65E0 /* DataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A823524022F7170F00FE65E0 /* DataManger.swift */; };
+		A854B64E2504FA85005D9FB8 /* CourseListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A854B64D2504FA85005D9FB8 /* CourseListPresenter.swift */; };
+		A854B6502504FA96005D9FB8 /* CourseListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A854B64F2504FA96005D9FB8 /* CourseListInteractor.swift */; };
+		A854B6522504FAA7005D9FB8 /* CourseListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A854B6512504FAA7005D9FB8 /* CourseListRouter.swift */; };
+		A854B6542504FAC4005D9FB8 /* CourseListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A854B6532504FAC4005D9FB8 /* CourseListConfigurator.swift */; };
 		A860DA6725001C8B002EAA26 /* CourseDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A860DA6625001C8B002EAA26 /* CourseDetailsPresenter.swift */; };
 		A860DA6925001C96002EAA26 /* CourseDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A860DA6825001C96002EAA26 /* CourseDetailsInteractor.swift */; };
 		A860DA6B25001CBA002EAA26 /* CourseDetailsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A860DA6A25001CBA002EAA26 /* CourseDetailsConfigurator.swift */; };
+		A8DF78DE2504F4330085DC52 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DF78DD2504F4330085DC52 /* ImageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,9 +40,14 @@
 		A823523A22F6ECB900FE65E0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A823523C22F6F1E900FE65E0 /* CourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTableViewCell.swift; sourceTree = "<group>"; };
 		A823524022F7170F00FE65E0 /* DataManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManger.swift; sourceTree = "<group>"; };
+		A854B64D2504FA85005D9FB8 /* CourseListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListPresenter.swift; sourceTree = "<group>"; };
+		A854B64F2504FA96005D9FB8 /* CourseListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListInteractor.swift; sourceTree = "<group>"; };
+		A854B6512504FAA7005D9FB8 /* CourseListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListRouter.swift; sourceTree = "<group>"; };
+		A854B6532504FAC4005D9FB8 /* CourseListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListConfigurator.swift; sourceTree = "<group>"; };
 		A860DA6625001C8B002EAA26 /* CourseDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailsPresenter.swift; sourceTree = "<group>"; };
 		A860DA6825001C96002EAA26 /* CourseDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailsInteractor.swift; sourceTree = "<group>"; };
 		A860DA6A25001CBA002EAA26 /* CourseDetailsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailsConfigurator.swift; sourceTree = "<group>"; };
+		A8DF78DD2504F4330085DC52 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +80,8 @@
 		A823521922F6AEAC00FE65E0 /* SwiftbookApp */ = {
 			isa = PBXGroup;
 			children = (
+				A854B64C2504FA62005D9FB8 /* CourseList */,
 				A860DA6525001C5C002EAA26 /* CourseDetails */,
-				A823523122F6EA4E00FE65E0 /* ViewControllers */,
 				A823523222F6EA6000FE65E0 /* Models */,
 				A823523622F6EAE800FE65E0 /* Views */,
 				A823523922F6EC6000FE65E0 /* Services */,
@@ -97,14 +107,6 @@
 				A823522322F6AEAE00FE65E0 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
-			sourceTree = "<group>";
-		};
-		A823523122F6EA4E00FE65E0 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				A823521C22F6AEAC00FE65E0 /* CourseListViewController.swift */,
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		A823523222F6EA6000FE65E0 /* Models */ = {
@@ -136,9 +138,22 @@
 			isa = PBXGroup;
 			children = (
 				A823523A22F6ECB900FE65E0 /* NetworkManager.swift */,
+				A8DF78DD2504F4330085DC52 /* ImageManager.swift */,
 				A823524022F7170F00FE65E0 /* DataManger.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		A854B64C2504FA62005D9FB8 /* CourseList */ = {
+			isa = PBXGroup;
+			children = (
+				A823521C22F6AEAC00FE65E0 /* CourseListViewController.swift */,
+				A854B64D2504FA85005D9FB8 /* CourseListPresenter.swift */,
+				A854B64F2504FA96005D9FB8 /* CourseListInteractor.swift */,
+				A854B6512504FAA7005D9FB8 /* CourseListRouter.swift */,
+				A854B6532504FAC4005D9FB8 /* CourseListConfigurator.swift */,
+			);
+			path = CourseList;
 			sourceTree = "<group>";
 		};
 		A860DA6525001C5C002EAA26 /* CourseDetails */ = {
@@ -230,9 +245,14 @@
 				A823523B22F6ECB900FE65E0 /* NetworkManager.swift in Sources */,
 				A823521D22F6AEAC00FE65E0 /* CourseListViewController.swift in Sources */,
 				A823524122F7170F00FE65E0 /* DataManger.swift in Sources */,
+				A854B6522504FAA7005D9FB8 /* CourseListRouter.swift in Sources */,
 				A860DA6725001C8B002EAA26 /* CourseDetailsPresenter.swift in Sources */,
+				A854B6502504FA96005D9FB8 /* CourseListInteractor.swift in Sources */,
 				A860DA6925001C96002EAA26 /* CourseDetailsInteractor.swift in Sources */,
+				A854B64E2504FA85005D9FB8 /* CourseListPresenter.swift in Sources */,
+				A8DF78DE2504F4330085DC52 /* ImageManager.swift in Sources */,
 				A823521B22F6AEAC00FE65E0 /* AppDelegate.swift in Sources */,
+				A854B6542504FAC4005D9FB8 /* CourseListConfigurator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

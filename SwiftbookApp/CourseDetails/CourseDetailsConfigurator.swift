@@ -17,7 +17,7 @@ class CourseDetailsConfigurator: CourseDetailsConfiguratorProtocol {
         let presentor = CourseDetailsPresenter(view: view)
         let interactor = CourseDetailsInteractor(presenter: presentor, course: course)
         
-        view.presentor = presentor
+        view.presenter = presentor
         presentor.interactor = interactor
     }
 }

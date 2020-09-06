@@ -12,3 +12,7 @@ struct Course: Decodable {
     let numberOfLessons: Int?
     let numberOfTests: Int?
 }
+
+enum Segues: String {
+    case showDetails = "ShowDetails"
+}

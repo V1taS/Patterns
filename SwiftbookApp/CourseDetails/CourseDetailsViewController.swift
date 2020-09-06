@@ -10,13 +10,19 @@ import UIKit
 
 // ViewInput
 protocol CourseDetailsViewProtocol: class {
-    
+    func displayCourseName(with title: String)
+    func displayNumberOfLessons(with title: String)
+    func displayNumberOfTests(with title: String)
+    func displayCourseImage(with imageData: Data)
+    func displayImageForFavoriteButton(with favoriteStatus: Bool)
 }
 
 // View Output
 protocol CourseDetailsViewOutputProtocol {
+    var isFavorite: Bool { get }
     init(view: CourseDetailsViewProtocol)
     func showDetails()
+    func favoriteButtonPressed()
 }
 
 
@@ -28,48 +34,38 @@ class CourseDetailsViewController: UIViewController {
     @IBOutlet private var courseImage: UIImageView!
     @IBOutlet private var favoriteButton: UIButton!
     
-    var course: Course!
-    var presentor: CourseDetailsViewOutputProtocol!
-    let configurator: CourseDetailsConfiguratorProtocol = CourseDetailsConfigurator()
+    var presenter: CourseDetailsViewOutputProtocol!
     
-    private var isFavorite = false
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        configurator.cofigure(with: self, and: course)
-        loadFavoriteStatus()
-        setupUI()
+        presenter.showDetails()
     }
     
     @IBAction func toggleFavorite(_ sender: UIButton) {
-        isFavorite.toggle()
-        setImageForFavoriteButton()
-        DataManager.shared.saveFavoriteStatus(for: course.name ?? "", with: isFavorite)
-    }
-    
-    private func setupUI() {
-        courseNameLabel.text = course.name
-        numberOfLessonsLabel.text = "Number of lessons: \(course.numberOfLessons ?? 0)"
-        numberOfTestsLabel.text = "Number of tests: \(course.numberOfTests ?? 0)"
-        
-        guard let stringURL = course.imageUrl else { return }
-        guard let imageURL = URL(string: stringURL) else { return }
-        guard let imageData = try? Data(contentsOf: imageURL) else { return }
-        courseImage.image = UIImage(data: imageData)
-              
-        setImageForFavoriteButton()
-    }
-    
-    private func setImageForFavoriteButton() {
-        favoriteButton.tintColor = isFavorite ? .red : .gray
-    }
-    
-    private func loadFavoriteStatus() {
-        isFavorite = DataManager.shared.loadFavoriteStatus(for: course.name ?? "")
+        presenter.favoriteButtonPressed()
     }
 }
 
 // MARK: - CourseDetailsViewProtocol
 extension CourseDetailsViewController: CourseDetailsViewProtocol {
+    func displayCourseName(with title: String) {
+        courseNameLabel.text = title
+    }
     
+    func displayNumberOfLessons(with title: String) {
+        numberOfLessonsLabel.text = title
+    }
+    
+    func displayNumberOfTests(with title: String) {
+        numberOfTestsLabel.text = title
+    }
+    
+    func displayCourseImage(with imageData: Data) {
+        let image = UIImage(data: imageData)
+        courseImage.image = image
+    }
+    
+    func displayImageForFavoriteButton(with favoriteStatus: Bool) {
+        favoriteButton.tintColor = favoriteStatus ? .red : .gray
+    }
 }
